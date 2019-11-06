@@ -1,0 +1,21 @@
+<mat-card class="diagViewTesterCard">
+    <mat-card-title>DiagViewTester</mat-card-title>
+    <mat-card-content>Test</mat-card-content>
+    <mat-card-actions>
+        <mat-form-field class="diagViewTesterFormField">
+            <textarea  matInput type="text" placeholder="Test Text Input" [errorStateMatcher]="matcher" [formControl]="formControl" ng-model="myTextArea" required ></textarea>
+            <mat-hint>Errors appear instantly!</mat-hint>
+            <mat-error *ngIf="formControl.hasError('required')">No text entered</mat-error>
+            <mat-error *ngIf="formControl.hasError('jsonObjectNotValid')">{{ ajvErrorText }}</mat-error>
+            <mat-error *ngIf="formControl.hasError('jsonSchemaNotCompiled')">JSON Schema not compiled</mat-error>
+        </mat-form-field>
+    </mat-card-actions>
+</mat-card>
+<mat-divider></mat-divider>
+<mat-card class="diagViewTesterCard" >
+    <mat-card-title>DiagView</mat-card-title>
+    <mat-card-content>
+        <app-diagnostic-detailled-v1 [jsonView]="myTextArea" ></app-diagnostic-detailled-v1>
+        <p>Test</p>
+    </mat-card-content>
+</mat-card>

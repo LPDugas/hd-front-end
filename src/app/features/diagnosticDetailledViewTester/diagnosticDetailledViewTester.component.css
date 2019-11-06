@@ -1,0 +1,11 @@
+.diagViewTesterFormField {
+    width: 85%;
+}
+.diagViewTesterCard {
+    width: 85%;
+}
+
+mat-divider {
+    margin: 20px;
+    width: 85%;
+}

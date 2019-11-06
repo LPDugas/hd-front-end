@@ -1,0 +1,8 @@
+<div>
+    <div *ngFor="let item of jsonView['view']">
+        <div [ngSwitch]="item?.objectRefURI">
+            <app-diagnostic-object-title-v1 *ngSwitchCase="'title/v1'"></app-diagnostic-object-title-v1>
+            <div *ngSwitchDefault></div>
+        </div>
+    </div>
+</div>
