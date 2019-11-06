@@ -127,4 +127,5 @@ Sometimes, you'll have [components|directives|interfaces|helpers|services|...] t
 - `SharedModule`: **Import this module in every module you'll create deep down the tree of the `features` folder**. For example, `Material` is imported/exported into `SharedModule` and if you want to use anything from `Material`, just import it to the current module you're working on
 
 If you have any questions about that setup, let me know by opening an issue and of course, if you see something that my be improved, feel free to make a pull request.
+=======
 
