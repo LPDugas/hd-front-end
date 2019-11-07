@@ -1,7 +1,10 @@
 <div>
-    <div *ngFor="let item of jsonView['view']">
+    <div *ngFor="let item of jsonView?.view">
         <div [ngSwitch]="item?.objectRefURI">
-            <app-diagnostic-object-title-v1 *ngSwitchCase="'title/v1'"></app-diagnostic-object-title-v1>
+            <app-diagnostic-object-title-v1 *ngSwitchCase="'title/v1'" [jsonView]="item" ></app-diagnostic-object-title-v1>
+            <app-diagnostic-object-paragraph-v1 *ngSwitchCase="'paragraph/v1'" [jsonView]="item"></app-diagnostic-object-paragraph-v1>
+            <app-diagnostic-object-agGrid-basic-v1 *ngSwitchCase="'table/ag-grid/basic/v1'" [jsonView]="item"></app-diagnostic-object-agGrid-basic-v1>
+            <app-diagnostic-object-plot-timeSeries-v1 *ngSwitchCase="'plot/timeSeries/v1'" [jsonView]="item"></app-diagnostic-object-plot-timeSeries-v1>
             <div *ngSwitchDefault></div>
         </div>
     </div>

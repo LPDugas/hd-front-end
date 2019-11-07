@@ -1,26 +1,24 @@
-import { Component, Input, OnInit, Injector, Host, Type, InjectionToken } from "@angular/core";
+import { Component, Input, OnChanges, Injector, Host, Type, InjectionToken, SkipSelf } from "@angular/core";
 import { TranslationStringsv1Service } from '../../translation/strings/v1/translationStringsv1.service';
+
+
 
 
 @Component({
     selector: 'app-diagnostic-detailled-v1',
     templateUrl: './diagnosticDetailledv1.component.html',
     styleUrls: ['./diagnosticDetailledv1.component.css'],
-    providers: [
-        {
-            provide: TranslationStringsv1Service,
-        }
-    ]
+    providers: [ TranslationStringsv1Service ]
 })
-export class DiagnosticDetailledv1Component implements OnInit {
-    @Input() jsonView: object;
+export class DiagnosticDetailledv1Component implements OnChanges {
+    @Input() jsonView: any;
 
-    constructor(@Host() private translationService:TranslationStringsv1Service) {
-        alert('test');
-    }
+    constructor(@Host() private translationService:TranslationStringsv1Service) { }
 
-    ngOnInit() {
+    ngOnChanges() {
         this.translationService.setTranslationStrings(this.jsonView['translationStrings'])
     }
+
+    
 
 }

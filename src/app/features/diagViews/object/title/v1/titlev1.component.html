@@ -1,11 +1,11 @@
 <div>
     <div [ngSwitch]="titleStrength">
         <h6 *ngSwitchCase="'h6'">{{titleString}}</h6>
-        <h6 *ngSwitchCase="'h5'">{{titleString}}</h6>
-        <h6 *ngSwitchCase="'h4'">{{titleString}}</h6>
-        <h6 *ngSwitchCase="'h3'">{{titleString}}</h6>
-        <h6 *ngSwitchCase="'h2'">{{titleString}}</h6>
-        <h6 *ngSwitchCase="'h1'">{{titleString}}</h6>
+        <h5 *ngSwitchCase="'h5'">{{titleString}}</h5>
+        <h4 *ngSwitchCase="'h4'">{{titleString}}</h4>
+        <h3 *ngSwitchCase="'h3'">{{titleString}}</h3>
+        <h2 *ngSwitchCase="'h2'">{{titleString}}</h2>
+        <h1 *ngSwitchCase="'h1'">{{titleString}}</h1>
         <h3 *ngSwitchDefault>{{titleString}}</h3>
     </div>
 </div>

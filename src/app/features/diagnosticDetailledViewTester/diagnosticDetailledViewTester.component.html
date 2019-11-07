@@ -15,7 +15,9 @@
 <mat-card class="diagViewTesterCard" >
     <mat-card-title>DiagView</mat-card-title>
     <mat-card-content>
-        <app-diagnostic-detailled-v1 [jsonView]="myTextArea" ></app-diagnostic-detailled-v1>
-        <p>Test</p>
+        <div *ngIf="formControl.valid">
+            <app-diagnostic-detailled-v1 [jsonView]="jsonViewObject" ></app-diagnostic-detailled-v1>
+        </div>
+        
     </mat-card-content>
 </mat-card>

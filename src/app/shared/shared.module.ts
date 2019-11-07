@@ -5,6 +5,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
+//Initialize plotly
+import * as PlotlyJS from 'plotly.js/dist/plotly.js';
+import { PlotlyModule } from 'angular-plotly.js'
+PlotlyModule.plotlyjs = PlotlyJS
+
+
 // we now have to import every sub modules of material we want to use
 import {
   MatButtonModule,
@@ -49,6 +55,7 @@ export const modules = [
   RouterModule,
   FlexLayoutModule,
   TranslateModule,
+  PlotlyModule,
   ...MaterialModules,
 ];
 

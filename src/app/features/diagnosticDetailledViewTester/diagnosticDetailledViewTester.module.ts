@@ -10,7 +10,6 @@ import { DiagnosticDetailledv1Module } from '../diagViews/diagnostic-detailled/v
 
 @NgModule({
   imports: [SharedModule, DiagnosticDetailledv1Module],
-  providers: [DiagnosticDetailledTesterService],
   declarations: [DiagnosticDetailledViewTesterComponent],
 })
 export class DiagnosticDetailledViewTesterModule {}

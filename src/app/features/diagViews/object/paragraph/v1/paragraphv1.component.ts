@@ -3,16 +3,15 @@ import { SkipSelf, Component, Input, OnInit, OnChanges } from '@angular/core';
 
 
 @Component({
-    selector: 'app-diagnostic-object-title-v1',
-    templateUrl: './titlev1.component.html',
-    styleUrls: ['./titlev1.component.css'],
+    selector: 'app-diagnostic-object-paragraph-v1',
+    templateUrl: './paragraphv1.component.html',
+    styleUrls: ['./paragraphv1.component.scss'],
     providers: [TranslationStringsv1Service]
 })
-export class Titlev1Component implements OnChanges {
+export class Paragraphv1Component implements OnChanges {
     @Input() jsonView: object;
 
-    public titleString: string;
-    public titleStrength: string;
+    public simpleString: string;
 
     constructor(
         @SkipSelf() private translationService:TranslationStringsv1Service,
@@ -25,10 +24,9 @@ export class Titlev1Component implements OnChanges {
         
 
     ngOnChanges() {
-        this.titleString = this.jsonView['titleString'];
-        this.titleStrength = this.jsonView['titleStrength'] ? this.jsonView['titleStrength'] : 'h3';
+        this.simpleString = this.jsonView['simpleString'];
 
         //And replace titleString with it's translation
-        this.titleString = this.translationService.getString(this.titleString);
+        this.simpleString = this.translationService.getString(this.simpleString);
     }
 }

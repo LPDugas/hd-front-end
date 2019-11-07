@@ -90,6 +90,8 @@ export class DiagnosticDetailledViewTesterComponent implements OnInit {
     });
   }
 
+  jsonViewObject : object;
+
   private baseSchema: any;
   private ajv: Ajv.Ajv;
 
@@ -114,6 +116,10 @@ export class DiagnosticDetailledViewTesterComponent implements OnInit {
   ): Promise<ValidationErrors | null> => {
     try {
       const valid = await this.ajvValidateFunction(control.value);
+      
+      //This is successful so add the object to the jsonViewObject
+      this.jsonViewObject = JSON.parse(control.value);
+      
       return valid ? null : { jsonObjectNotValid: { value: control.value } };
     } catch (error) {
       if (error === 'Schema Compilation not finished')
