@@ -36,9 +36,9 @@ export class BasicAgGridv1Component implements OnChanges {
     }
 
     private replaceRowStringsWithTranslation(rowData: object): object {
-        for( let value of Object.values(rowData) ) {
-            if (typeof value === 'string')
-                value = this.translationService.getString(value);
+        for( let key of Object.keys(rowData) ) {
+            if (typeof rowData[key] === 'string')
+                rowData[key] = this.translationService.getString(rowData[key]);
         }
 
         return rowData;
