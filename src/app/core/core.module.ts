@@ -2,6 +2,7 @@ import {
   HttpClient,
   HttpClientJsonpModule,
   HttpClientModule,
+  HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +19,7 @@ import {
 import { httpLoaderFactory } from 'app/shared/helpers/aot.helper';
 import { UiService } from 'app/shared/states/ui/ui.service';
 import { environment } from 'environments/environment';
+import { InterceptorService } from 'app/shared/states/auth/interceptor.service';
 
 /**
  * this module will be imported only once, in AppModule and shouldn't be imported from anywhere else
@@ -60,6 +62,11 @@ import { environment } from 'environments/environment';
     },
     UiService,
     SessionService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
   ],
 })
 export class CoreModule {}

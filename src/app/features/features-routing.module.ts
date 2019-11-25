@@ -20,6 +20,7 @@ const routes: Routes = [
       {
         path: 'diagViewTester',
         component: DiagnosticDetailledViewTesterComponent,
+        canActivate: [AuthGuard]
       },
     ],
   },

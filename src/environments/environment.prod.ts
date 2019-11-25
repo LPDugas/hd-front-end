@@ -10,7 +10,7 @@ export const environment = {
   // your backend URL
   // you can then use it for example in a service
   // `${environment.urlBackend}/some/resource`
-  urlBackend: '/api',
+  urlBackend: 'https://api.dashboard.hdenergie.ca/',
 
   // automatically detect browser language and set it
   // as the default one

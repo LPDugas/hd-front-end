@@ -22,6 +22,8 @@ export class AuthService {
       domain: config.domain,
       client_id: config.clientID,
       redirect_uri: `${window.location.origin}/callback`,
+      scope: "openid profile email read:influxdb",
+      audience: "https://api.dashboard.hdenergie.ca"
     })
   ) as Observable<Auth0Client>).pipe(
     shareReplay(1),
@@ -124,6 +126,12 @@ export class AuthService {
         returnTo: window.location.origin,
       });
     });
+  }
+
+  getTokenSilently$(options?): Observable<string> {
+    return this.auth0Client$.pipe(
+      concatMap((client: Auth0Client) => from(client.getTokenSilently(options)))
+    );
   }
 }
 
