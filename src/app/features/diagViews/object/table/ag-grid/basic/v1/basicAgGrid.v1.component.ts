@@ -12,6 +12,7 @@ export class BasicAgGridv1Component implements OnChanges {
 
     public columnDefs: Array<object>;
     public rowData: Array<object>;
+    public defaultColDef = {resizable: true};
 
     constructor(
         @SkipSelf() private translationService:TranslationStringsv1Service,

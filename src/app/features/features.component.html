@@ -13,6 +13,9 @@
         <mat-option *ngFor="let language of languages" [value]="language">{{ language }}</mat-option>
       </mat-select>
     </mat-form-field>
+    <a mat-button routerLink='/stores' *ngIf="authService.loggedIn">
+      {{'STORES' | translate}}
+    </a>
     <a mat-button routerLink="/profile" routerLinkActive="active" *ngIf="authService.loggedIn">
       {{'PROFILE' | translate}}
     </a>

@@ -1,0 +1,22 @@
+<section>
+    <h1>
+        Stores List
+    </h1>
+
+    <ng-container *ngIf="!(loading$ | async); else loadingTpl">
+        <div>
+            <mat-nav-list>
+                <app-store *ngFor="let store of (stores$ | async)"
+                    [store]="store">
+                </app-store>
+            </mat-nav-list>
+            
+        </div>
+    </ng-container>
+
+    <ng-template #loadingTpl>
+        <div class="progress">
+          <mat-spinner color="accent"></mat-spinner>
+        </div>
+    </ng-template>
+</section>

@@ -6,6 +6,9 @@ import { SharedModule } from 'app/shared/shared.module';
 
 import { DiagnosticDetailledViewTesterModule } from './diagnosticDetailledViewTester/diagnosticDetailledViewTester.module';
 import { ProfileModule } from './profile/profile.module';
+import { StoresModule } from './stores/stores.module';
+import { StoreStatusModule } from './store/storeStatus.module';
+import { DiagViewModule } from './store/diagView/diagView.module'
 
 @NgModule({
   imports: [
@@ -13,6 +16,9 @@ import { ProfileModule } from './profile/profile.module';
     FeaturesRoutingModule,
     ProfileModule,
     DiagnosticDetailledViewTesterModule,
+    StoresModule,
+    StoreStatusModule,
+    DiagViewModule
   ],
   declarations: [FeaturesComponent],
 })

@@ -1,0 +1,25 @@
+<div>
+    <ng-container *ngIf="store$ | async as store">
+        <h1>{{ store.name }}</h1>
+        <!-- p>{{ store | json }}</p -->
+
+        <mat-list >
+            
+                <ng-container  *ngFor="let item of store.object" >
+                    <mat-list-item *ngIf="item?.Info?.Name"  >
+                            <a    mat-list-item [routerLink]="['/store', store.name , 'diag', item._id ]">
+                                {{item.Info.Name}}
+                            </a>
+                            <mat-icon   *ngIf="item?.Diagnosis?.Flag ==true; else FlagFalse" 
+                                matListIcon color="warn" >
+                                cancel
+                            </mat-icon>
+                            <ng-template #FlagFalse>
+                                <mat-icon matListIcon color="primary" >check</mat-icon>
+                            </ng-template>
+                    </mat-list-item>
+                </ng-container>
+            
+        </mat-list>
+    </ng-container>
+</div>
