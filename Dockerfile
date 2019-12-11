@@ -14,8 +14,7 @@ RUN npm install
 COPY . /app
 
 # generate build
-RUN ng build --output-path=dist 
-# --configuration production
+RUN ng build --output-path=dist --configuration production
 
 ############
 ### prod ###
