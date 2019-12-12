@@ -7,12 +7,17 @@ import { SkipSelf, Component, Input, OnInit, OnChanges } from '@angular/core';
     styleUrls: ['./basicAgGrid.v1.component.scss'],
     providers: [TranslationStringsv1Service]
 })
-export class BasicAgGridv1Component implements OnChanges {
+export class BasicAgGridv1Component implements OnChanges, OnInit {
     @Input() jsonView: object;
+
+    private gridApi;
+    private gridColumnApi;
 
     public columnDefs: Array<object>;
     public rowData: Array<object>;
     public defaultColDef = {resizable: true};
+    public domLayout: string;
+    public divHeight:number ;
 
     constructor(
         @SkipSelf() private translationService:TranslationStringsv1Service,
@@ -56,5 +61,44 @@ export class BasicAgGridv1Component implements OnChanges {
         this.rowData.forEach(rowData => {
             rowData = this.replaceRowStringsWithTranslation(rowData);
         })
+    }
+
+    ngOnInit() {
+        const nbRows = this.jsonView['rowData'].length;
+        if(nbRows < 10)
+            this.domLayout= "autoHeight";
+        else{
+            this.domLayout= "normal"; 
+            this.divHeight = 400;
+        }
+    }
+
+    sizeToFit() {
+        this.gridApi.sizeColumnsToFit();
+    }
+    
+    autoSizeAll(skipHeader) {
+        var allColumnIds = [];
+        this.gridColumnApi.getAllColumns().forEach(function(column) {
+            allColumnIds.push(column.colId);
+        });
+        this.gridColumnApi.autoSizeColumns(allColumnIds, skipHeader);
+    }
+
+    onGridReady(params) {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+
+        params.api.sizeColumnsToFit();
+
+        /*window.addEventListener("resize", function() {
+            setTimeout(function() {
+                params.api.sizeColumnsToFit();
+            });
+        });*/
+
+    }
+    onFirstDataRendered(params) {
+        params.api.sizeColumnsToFit();
     }
 }

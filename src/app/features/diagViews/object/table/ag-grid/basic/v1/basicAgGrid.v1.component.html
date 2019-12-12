@@ -3,6 +3,10 @@
     [rowData]="rowData" 
     [columnDefs]="columnDefs"
     [defaultColDef]="defaultColDef"
+    [domLayout]="domLayout"
+    [style.height.px]="divHeight"
     [autoSizePadding]=true
+    (gridReady)="onGridReady($event)"
+    (firstDataRendered)="onFirstDataRendered($event)"
     >
 </ag-grid-angular>
