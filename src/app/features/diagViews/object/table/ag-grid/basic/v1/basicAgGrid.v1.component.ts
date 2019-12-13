@@ -89,6 +89,8 @@ export class BasicAgGridv1Component implements OnChanges, OnInit {
         this.gridApi = params.api;
         this.gridColumnApi = params.columnApi;
 
+        this.ngOnChanges();
+
         params.api.sizeColumnsToFit();
 
         /*window.addEventListener("resize", function() {

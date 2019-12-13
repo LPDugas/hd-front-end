@@ -46,11 +46,15 @@ export class TranslationStringsv1Service implements OnDestroy {
                 if ( translatedString != undefined && translatedString != null) {
                     return translatedString
                 } else {
-                    throw new Error("stringID: " + stringID + " is not inside the translationStringsObject for language " + this.languageCode + " and en");
+                    //throw new Error("stringID: " + stringID + " is not inside the translationStringsObject for language " + this.languageCode + " and en");
+                    console.error("stringID: " + stringID + " is not inside the translationStringsObject for language " + this.languageCode + " and en");
+                    return stringID;
                 }
             }
         } else {
-            throw new Error("stringID: " + stringID + " is not inside the translationStringsObject");
+            //throw new Error("stringID: " + stringID + " is not inside the translationStringsObject");
+            console.error("stringID: " + stringID +  " is not inside the translationStringsObject");
+                    return stringID;
         }
     }
 }
