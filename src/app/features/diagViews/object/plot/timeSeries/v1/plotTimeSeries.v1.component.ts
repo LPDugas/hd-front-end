@@ -11,6 +11,7 @@ type GraphTrace = {
     name: string,
     yaxis: string,
     marker?: object,
+    line?: object,
     mode: string
 }
 type GraphLayout = {
@@ -66,6 +67,8 @@ export class plotTimeSeriesv1Component implements OnChanges {
             graphTrace.name = this.translationService.getString( trace['traceName'] );
             graphTrace.yaxis = trace['yaxis'] ? trace['yaxis'] : 'y';
             graphTrace.mode = trace['mode'] ? trace['mode'] : 'lines';
+            graphTrace.type = 'scatter';
+            graphTrace.line = trace['line'] ? trace['line'] : {};
 
             if( trace['dataSource']['influxDbDataSource'] ) {
                 //TODO: do somoething to get all data for influxDB 
@@ -83,7 +86,6 @@ export class plotTimeSeriesv1Component implements OnChanges {
                         graphTrace.x = xValues
                         graphTrace.y = yValues
                         //graphTrace.marker = this.graph.data[0].marker;
-                        graphTrace.type = 'scatter'
                         graphData.push(graphTrace);
                     })                    
                 
@@ -91,7 +93,6 @@ export class plotTimeSeriesv1Component implements OnChanges {
             } else if( trace['dataSource']['embeddedDataSource']) {
                 graphTrace.x = trace['dataSource']['embeddedDataSource']['x'];
                 graphTrace.y = trace['dataSource']['embeddedDataSource']['y'];
-                graphTrace.type = 'scatter';
                 graphData.push(graphTrace);
             }
 
