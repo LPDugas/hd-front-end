@@ -1,0 +1,7 @@
+<ng-container [ngSwitch]="flagValue">
+    <mat-icon *ngSwitchCase="true" matListIcon [ngClass]="'alert-icon'">
+        cancel
+    </mat-icon>
+    <mat-icon *ngSwitchCase="false" matListIcon [ngClass]="'pass-icon'">check_circle</mat-icon>
+    <mat-icon *ngSwitchDefault matListIcon [ngClass]="'unknown-icon'">help</mat-icon>
+</ng-container>
