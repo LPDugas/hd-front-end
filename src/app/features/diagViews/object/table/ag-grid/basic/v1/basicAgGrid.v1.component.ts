@@ -17,7 +17,7 @@ export class BasicAgGridv1Component implements OnChanges, OnInit {
     private gridApi;
     private gridColumnApi;
 
-    private frameworkComponents = {
+    public frameworkComponents = {
         cellRenderer : CellRenderer
     }
 
@@ -41,6 +41,8 @@ export class BasicAgGridv1Component implements OnChanges, OnInit {
         //verify that there is no other properties
         if('headerTooltip' in columnDef)
             columnDef['headerTooltip'] = this.translationService.getString(columnDef['headerTooltip'])
+        if(!( 'autoHeight' in columnDef))
+            columnDef['autoHeight'] =  true;
         if('children' in columnDef)
             columnDef['children'].forEach(childrenColumn => {
                 childrenColumn = this.replaceColumnStringsWithTranslation(childrenColumn)
