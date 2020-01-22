@@ -23,7 +23,10 @@ export class BasicAgGridv1Component implements OnChanges, OnInit {
 
     public columnDefs: Array<object>;
     public rowData: Array<object>;
-    public defaultColDef = {resizable: true};
+    public defaultColDef = {
+        resizable: true,
+        autoHeight: true
+    };
     public domLayout: string;
     public divHeight:number ;
 
@@ -41,8 +44,6 @@ export class BasicAgGridv1Component implements OnChanges, OnInit {
         //verify that there is no other properties
         if('headerTooltip' in columnDef)
             columnDef['headerTooltip'] = this.translationService.getString(columnDef['headerTooltip'])
-        if(!( 'autoHeight' in columnDef))
-            columnDef['autoHeight'] =  true;
         if('children' in columnDef)
             columnDef['children'].forEach(childrenColumn => {
                 childrenColumn = this.replaceColumnStringsWithTranslation(childrenColumn)
@@ -115,4 +116,8 @@ export class BasicAgGridv1Component implements OnChanges, OnInit {
     onFirstDataRendered(params) {
         params.api.sizeColumnsToFit();
     }
+
+    onColumnResized() {
+        this.gridApi.resetRowHeights();
+      }
 }

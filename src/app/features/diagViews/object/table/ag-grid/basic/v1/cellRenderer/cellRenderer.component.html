@@ -1,9 +1,15 @@
 <ng-container *ngFor="let item of items">
-    <ng-container  [ngSwitch]="getType(item)">
-        <ng-container *ngSwitchCase="'string'" >{{item}}</ng-container>
-        <ng-container *ngSwitchCase="'number'" >{{item}}</ng-container>
+    <ng-container [ngSwitch]="getType(item)">
+        <ng-container *ngSwitchCase="'string'">
+            <div class="cell-wrap-text">
+                <span>{{item}}</span>
+            </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'number'">
+            <div class="cell-wrap-text">  
+                <span>{{item}}</span>
+            </div>
+        </ng-container>
         <app-diagnostic-object-base-v1 *ngSwitchDefault [jsonView]="item"></app-diagnostic-object-base-v1>
     </ng-container>
 </ng-container>
-
-
