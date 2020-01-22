@@ -5,8 +5,7 @@ import { SkipSelf, Component, Input, OnInit, OnChanges } from '@angular/core';
 @Component({
     selector: 'app-diagnostic-object-paragraph-v1',
     templateUrl: './paragraphv1.component.html',
-    styleUrls: ['./paragraphv1.component.scss'],
-    providers: [TranslationStringsv1Service]
+    styleUrls: ['./paragraphv1.component.scss']
 })
 export class Paragraphv1Component implements OnChanges {
     @Input() jsonView: object;

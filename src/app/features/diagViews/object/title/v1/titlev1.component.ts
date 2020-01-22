@@ -5,8 +5,7 @@ import { SkipSelf, Component, Input, OnInit, OnChanges } from '@angular/core';
 @Component({
     selector: 'app-diagnostic-object-title-v1',
     templateUrl: './titlev1.component.html',
-    styleUrls: ['./titlev1.component.css'],
-    providers: [TranslationStringsv1Service]
+    styleUrls: ['./titlev1.component.css']
 })
 export class Titlev1Component implements OnChanges {
     @Input() jsonView: object;

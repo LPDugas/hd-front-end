@@ -4,14 +4,10 @@ import { SharedModule } from 'app/shared/shared.module';
 
 import { DiagnosticDetailledv1Component } from './diagnosticDetailledv1.component';
 
-import {Titlev1Module} from '../../object/title/v1/titlev1.module';
-import {Paragraphv1Module} from '../../object/paragraph/v1/paragraphv1.module';
-import { BasicAgGridv1Module } from '../../object/table/ag-grid/basic/v1/basicAgGrid.v1.module';
-import { plotTimeSeriesv1Module } from '../../object/plot/timeSeries/v1/plotTimeSeries.v1.module';
-import { Flagv1Module } from '../../object/flag/v1/flag.v1.module';
+import {Basev1Module} from '../../object/base/v1/base.v1.module';
 
 @NgModule({
-  imports: [SharedModule, Titlev1Module, Paragraphv1Module, BasicAgGridv1Module, plotTimeSeriesv1Module, Flagv1Module],
+  imports: [SharedModule, Basev1Module],
   declarations: [DiagnosticDetailledv1Component],
   exports: [DiagnosticDetailledv1Component]
 })

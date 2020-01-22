@@ -31,8 +31,7 @@ type Graph = {
 @Component({
     selector: 'app-diagnostic-object-plot-timeSeries-v1',
     templateUrl: './plotTimeSeries.v1.component.html',
-    styleUrls: ['./plotTimeSeries.v1.component.scss'],
-    providers: [TranslationStringsv1Service]
+    styleUrls: ['./plotTimeSeries.v1.component.scss']
 })
 export class plotTimeSeriesv1Component implements OnChanges {
     @Input() jsonView: object;

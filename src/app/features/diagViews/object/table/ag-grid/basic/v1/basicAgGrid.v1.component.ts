@@ -1,17 +1,25 @@
+// There is no module for this component since it's already integrated in the baseComponent 
+// There is a cyclic dependency if this module imports the baseComponent
+
 import { TranslationStringsv1Service } from '../../../../../translation/strings/v1/translationStringsv1.service';
 import { SkipSelf, Component, Input, OnInit, OnChanges } from '@angular/core';
+
+import { CellRenderer } from './cellRenderer/cellRenderer.component';
 
 @Component({
     selector: 'app-diagnostic-object-agGrid-basic-v1',
     templateUrl: './basicAgGrid.v1.component.html',
-    styleUrls: ['./basicAgGrid.v1.component.scss'],
-    providers: [TranslationStringsv1Service]
+    styleUrls: ['./basicAgGrid.v1.component.scss']
 })
 export class BasicAgGridv1Component implements OnChanges, OnInit {
     @Input() jsonView: object;
 
     private gridApi;
     private gridColumnApi;
+
+    private frameworkComponents = {
+        cellRenderer : CellRenderer
+    }
 
     public columnDefs: Array<object>;
     public rowData: Array<object>;
@@ -57,6 +65,8 @@ export class BasicAgGridv1Component implements OnChanges, OnInit {
         this.columnDefs.forEach(columnDef => {
             //Replace the strings with their translation
             columnDef = this.replaceColumnStringsWithTranslation(columnDef);
+            //setup the cell renderer
+            columnDef['cellRenderer'] = 'cellRenderer';
         });
         this.rowData.forEach(rowData => {
             rowData = this.replaceRowStringsWithTranslation(rowData);

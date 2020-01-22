@@ -1,0 +1,11 @@
+<ng-container [ngSwitch]="jsonView?.objectRefURI">
+    <app-diagnostic-object-title-v1 *ngSwitchCase="'title/v1'" [jsonView]="jsonView"></app-diagnostic-object-title-v1>
+    <app-diagnostic-object-paragraph-v1 *ngSwitchCase="'paragraph/v1'" [jsonView]="jsonView">
+    </app-diagnostic-object-paragraph-v1>
+    <app-diagnostic-object-agGrid-basic-v1 *ngSwitchCase="'table/ag-grid/basic/v1'" [jsonView]="jsonView">
+    </app-diagnostic-object-agGrid-basic-v1>
+    <app-diagnostic-object-plot-timeSeries-v1 *ngSwitchCase="'plot/timeSeries/v1'" [jsonView]="jsonView">
+    </app-diagnostic-object-plot-timeSeries-v1>
+    <app-diagnostic-object-flag-v1 *ngSwitchCase="'flag/v1'" [jsonView]="jsonView"></app-diagnostic-object-flag-v1>
+    <div *ngSwitchDefault></div>
+</ng-container>
