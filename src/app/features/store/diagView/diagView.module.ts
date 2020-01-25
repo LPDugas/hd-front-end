@@ -11,5 +11,6 @@ import { DiagnosticDetailledv1Module } from '../../diagViews/diagnostic-detaille
 @NgModule({
   imports: [SharedModule, CommonModule, DiagnosticDetailledv1Module],
   declarations: [DiagViewComponent],
+  exports: [DiagViewComponent]
 })
 export class DiagViewModule {}

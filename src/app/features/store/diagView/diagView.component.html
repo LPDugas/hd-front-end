@@ -1,6 +1,6 @@
 <div>
     <ng-container *ngIf="store$ | async as store">
-        <h1>{{ store.name }}</h1>
+        <!--h1>{{ store.name }}</h1-->
 
         <ng-container *ngIf="diag">
             <app-diagnostic-detailled-v1 [jsonView]="diag.View">

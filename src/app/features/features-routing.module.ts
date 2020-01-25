@@ -9,7 +9,6 @@ import { StoresComponent } from './stores/stores.component'
 
 import { AuthGuard } from '../shared/states/auth/auth.guard';
 import { StoreStatusComponent } from './store/storeStatus.component';
-import { DiagViewComponent } from './store/diagView/diagView.component';
 
 const routes: Routes = [
   {
@@ -34,11 +33,6 @@ const routes: Routes = [
       {
         path: 'store/:storeName',
         component: StoreStatusComponent,
-        canActivate: [AuthGuard]
-      },
-      {
-        path: 'store/:storeName/diag/:diagID',
-        component: DiagViewComponent,
         canActivate: [AuthGuard]
       }
     ],

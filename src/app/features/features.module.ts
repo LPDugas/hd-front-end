@@ -8,7 +8,6 @@ import { DiagnosticDetailledViewTesterModule } from './diagnosticDetailledViewTe
 import { ProfileModule } from './profile/profile.module';
 import { StoresModule } from './stores/stores.module';
 import { StoreStatusModule } from './store/storeStatus.module';
-import { DiagViewModule } from './store/diagView/diagView.module'
 
 @NgModule({
   imports: [
@@ -18,7 +17,6 @@ import { DiagViewModule } from './store/diagView/diagView.module'
     DiagnosticDetailledViewTesterModule,
     StoresModule,
     StoreStatusModule,
-    DiagViewModule
   ],
   declarations: [FeaturesComponent],
 })

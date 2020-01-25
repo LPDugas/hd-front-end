@@ -3,23 +3,24 @@
         <h1>{{ store.name }}</h1>
         <!-- p>{{ store | json }}</p -->
 
-        <mat-list >
-            
-                <ng-container  *ngFor="let item of store.object" >
-                    <mat-list-item *ngIf="item?.Info?.Name"  >
-                            <a    mat-list-item [routerLink]="['/store', store.name , 'diag', item._id ]">
-                                {{item.Info.Name}}
-                            </a>
-                            <mat-icon   *ngIf="item?.Diagnosis?.Flag ==true; else FlagFalse" 
-                                matListIcon color="warn" >
-                                cancel
-                            </mat-icon>
-                            <ng-template #FlagFalse>
-                                <mat-icon matListIcon color="primary" >check</mat-icon>
-                            </ng-template>
-                    </mat-list-item>
-                </ng-container>
-            
-        </mat-list>
+        <mat-accordion multi="true">
+            <ng-container *ngFor="let item of store.object; trackBy: identifyer">
+                <mat-expansion-panel *ngIf="item?.Info?.Name">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{item.Info.Name}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div>
+                        <ng-template matExpansionPanelContent>
+                            <app-store-diag-detailled
+                              [diagID]="item._id" 
+                              [storeName]="store.name">
+                            </app-store-diag-detailled>
+                        </ng-template>
+                    </div>
+                </mat-expansion-panel>
+            </ng-container>
+        </mat-accordion>
     </ng-container>
 </div>

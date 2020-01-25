@@ -26,6 +26,7 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
+  MatExpansionModule,
 } from '@angular/material';
 
 const MaterialModules = [
@@ -42,6 +43,7 @@ const MaterialModules = [
   MatToolbarModule,
   MatTooltipModule,
   MatSelectModule,
+  MatExpansionModule
 ];
 
 /**

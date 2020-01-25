@@ -6,8 +6,10 @@ import { CommonModule } from '@angular/common';
 
 import {StoreStatusComponent} from './storeStatus.component';
 
+import {DiagViewModule} from './diagView/diagView.module'
+
 @NgModule({
-  imports: [SharedModule, CommonModule],
+  imports: [SharedModule, CommonModule, DiagViewModule],
   declarations: [StoreStatusComponent],
 })
 export class StoreStatusModule {}

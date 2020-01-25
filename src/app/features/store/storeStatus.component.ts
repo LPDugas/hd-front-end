@@ -34,4 +34,6 @@ export class StoreStatusComponent implements OnInit {
         });
     }
 
+    identifyer = (index:number, item: any) => item.Info.Name;
+
 }
