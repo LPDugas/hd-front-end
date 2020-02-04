@@ -30,6 +30,11 @@ export class DiagViewComponent implements OnInit {
             console.log(this.storeName + " " + this.diagID)
             this.store$ = this.storesQuery.getStore(this.storeName).pipe(tap((store) => {
                 this.diag = store.object.find( diag => diag._id === this.diagID );
+                //Merge the FlagsMap in the view object
+                if ('FlagsMap' in this.diag && 'View' in this.diag){
+                    this.diag.View.flags = this.diag.FlagsMap;
+                }
+
             }));
         });
                 
