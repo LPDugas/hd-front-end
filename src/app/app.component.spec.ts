@@ -10,6 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { LANGUAGES } from 'app/core/injection-tokens';
 import { AppComponent } from './app.component';
+import { AuthService } from './shared/states/auth/auth.service';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -19,6 +20,7 @@ describe('AppComponent', () => {
       declarations: [AppComponent],
       providers: [
         { provide: TranslateService, useClass: TranslateMockService },
+        { provide: AuthService, useClass: AuthMockService },
         { provide: LANGUAGES, useValue: ['en', 'fr'] },
       ],
       schemas: [NO_ERRORS_SCHEMA],
@@ -35,14 +37,9 @@ describe('AppComponent', () => {
       spyOn(translateService, 'getBrowserLang').and.callThrough();
       spyOn(translateService, 'setDefaultLang');
       spyOn(translateService, 'use');
-      spyOn(store, 'dispatch');
 
       // simulate that the browser is set to english by default
       translateService.browserLang = 'en';
-
-      store.updateStore({
-        ui: { language: 'en' },
-      });
 
       // calling detectChanges for the first time will trigger the ngOnInit
       fixture.detectChanges();
@@ -82,4 +79,9 @@ export class StoreMockService extends BehaviorSubject<any> {
   updateStore(state) {
     this.next(state);
   }
+}
+
+@Injectable()
+export class AuthMockService {
+  localAuthSetup() {}
 }

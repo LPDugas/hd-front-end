@@ -8,7 +8,6 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import 'hammerjs';
-import { SessionService } from './../shared/states/session/session.service';
 
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { LANGUAGES } from 'app/core/injection-tokens';
@@ -61,7 +60,6 @@ import { InterceptorService } from 'app/shared/states/auth/interceptor.service';
       provide: UiService,
     },
     UiService,
-    SessionService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,
